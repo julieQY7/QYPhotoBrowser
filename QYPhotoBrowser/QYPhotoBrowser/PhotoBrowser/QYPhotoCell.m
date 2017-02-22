@@ -10,7 +10,7 @@
 #import "UIImageView+WebCache.h"
 #import "SDWaitingView.h"
 
-#define D_PhotoBrowser_DefaultImage @"6.png"
+#define D_PhotoBrowser_DefaultImage @"defaultimage_big_icon.png"
 
 #define D_ImageView_ScaleMax 2.0
 #define D_ImageView_ScaleMin 0.5
