@@ -43,7 +43,7 @@
     
     self.imageView = [[UIImageView alloc] init];
     [self resetImageView];
-    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
     self.imageView.userInteractionEnabled = YES;
     [self.scrollView addSubview:self.imageView];
     
@@ -104,6 +104,13 @@
                                  if (error != nil) {
                                      [self resetImageView];
                                      self.errorLabel.hidden = NO;
+                                 } else {
+                                     self.imageView.bounds = CGRectMake(0, 0, [self sizeWithImageSize:self.imageView.image.size].width, [self sizeWithImageSize:self.imageView.image.size].height);
+                                     self.scrollView.contentSize = self.imageView.bounds.size;
+                                     CGPoint imageViewDefaultCenter = CGPointMake(self.scrollView.bounds.size.width / 2.0, self.scrollView.bounds.size.height / 2.0);
+                                     CGFloat imageViewCenterX = self.scrollView.contentSize.width > self.scrollView.bounds.size.width ? self.scrollView.contentSize.width / 2.0 : imageViewDefaultCenter.x;
+                                     CGFloat imageViewCenterY = self.scrollView.contentSize.height > self.scrollView.bounds.size.height ? self.scrollView.contentSize.height / 2.0 : imageViewDefaultCenter.y;
+                                     self.imageView.center = CGPointMake(imageViewCenterX, imageViewCenterY);
                                  }
                              }];
 }

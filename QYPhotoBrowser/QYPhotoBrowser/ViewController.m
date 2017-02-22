@@ -63,15 +63,12 @@
 {
     if (_imageUrlArray == nil) {
         _imageUrlArray = @[
-                           @"http://www.netbian.com/d/file/20150519/f2897426d8747f2704f3d1e4c2e33fc2.jpg",
-                           @"http://www.netbian.com/d/file/20130502/701d50ab1c8ca5b5a7515b0098b7c3f3.jpg",
-                           @"http://www.netbian.com/d/file/20110418/48d30d13ae088fd80fde8b4f6f4e73f9.jpg",
-                           @"http://www.netbian.com/d/file/20150318/869f76bbd095942d8ca03ad4ad45fc80.jpg",
-                           @"http://www.netbian.com/d/file/20110424/b69ac12af595efc2473a93bc26c276b2.jpg",
-                           @"http://www.netbian.com/d/file/20140522/3e939daa0343d438195b710902590ea0.jpg",
-                           @"http://www.netbian.com/d/file/20141018/7ccbfeb9f47a729ffd6ac45115a647a3.jpg",
-                           @"http://www.netbian.com/d/file/20140724/fefe4f48b5563da35ff3e5b6aa091af4.jpg",
-                           @"http://www.netbian.com/d/file/20140529/95e170155a843061397b4bbcb1cefc50.jpg"
+                           @"http://test.img.mzhinan.cn/user/c337769682b4a68ceaabe3e853a39844_w820_h2440.jpg",
+                           @"http://test.img.mzhinan.cn/user/aaa99a44eb31446c393aaa91b43f6ff7_w10800_h2332.jpg",
+                           @"http://test.img.mzhinan.cn/user/851535108e9d9936ecb396962fb3aa39_w148_h116.jpg",
+                           @"http://test.img.mzhinan.cn/user/7829a8675c3994e45c5997b10bea1d2d_w500_h333.jpg",
+                           @"http://test.img.mzhinan.cn/user/9012c9182515687ea568c324e299fd08_w2448_h3264.jpg",
+                           @"http://test.img.mzhinan.cn/user/fe92faca319511bb301a812b16583f7f_w2448_h3264.jpg"
                            ];
     }
     return _imageUrlArray;
