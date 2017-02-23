@@ -64,7 +64,6 @@
     if (_imageUrlArray == nil) {
         _imageUrlArray = @[
                            @"http://test.img.mzhinan.cn/user/c337769682b4a68ceaabe3e853a39844_w820_h2440.jpg",
-                           @"http://test.img.mzhinan.cn/user/aaa99a44eb31446c393aaa91b43f6ff7_w10800_h2332.jpg",
                            @"http://test.img.mzhinan.cn/user/851535108e9d9936ecb396962fb3aa39_w148_h116.jpg",
                            @"http://test.img.mzhinan.cn/user/7829a8675c3994e45c5997b10bea1d2d_w500_h333.jpg",
                            @"http://test.img.mzhinan.cn/user/9012c9182515687ea568c324e299fd08_w2448_h3264.jpg",
