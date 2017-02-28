@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView           *collectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *collectionViewFlowLayout;
 @property (nonatomic, strong) UITapGestureRecognizer            *tapRecognizer;
+@property (nonatomic, assign) NSInteger                         totalCount;
 
 @end
 
@@ -192,9 +193,11 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     if ([self.dataSource respondsToSelector:@selector(numberOfImageInPhotoBrowserView:)]) {
-        return [self.dataSource numberOfImageInPhotoBrowserView:self];
+        self.totalCount = [self.dataSource numberOfImageInPhotoBrowserView:self];
+        return self.totalCount;
     } else if ([self.dataSource respondsToSelector:@selector(imageUrlStringArrayForPhotoBrowserView:)]) {
-        return [self.dataSource imageUrlStringArrayForPhotoBrowserView:self].count;
+        self.totalCount = [self.dataSource imageUrlStringArrayForPhotoBrowserView:self].count;
+        return self.totalCount;
     } else {
         return 0;
     }
@@ -217,7 +220,7 @@
 {
     CGFloat offsetX = scrollView.contentOffset.x;
     NSInteger nextIndex = offsetX / self.bounds.size.width + 0.5;
-    if (nextIndex != _currentIndex) {
+    if (nextIndex != _currentIndex && nextIndex >= 0 && nextIndex < self.totalCount) {
         _currentIndex = nextIndex;
         if ([self.delegate respondsToSelector:@selector(photoBrowserView:didStartDisplayIndex:)]) {
             [self.delegate photoBrowserView:self didStartDisplayIndex:nextIndex];
@@ -229,7 +232,7 @@
 {
     CGFloat offsetX = scrollView.contentOffset.x;
     NSInteger nextIndex = offsetX / self.bounds.size.width + 0.5;
-    if (nextIndex != _currentIndex) {
+    if (nextIndex != _currentIndex && nextIndex >= 0 && nextIndex < self.totalCount) {
         _currentIndex = nextIndex;
         if ([self.delegate respondsToSelector:@selector(photoBrowserView:didEndDisplayIndex:)]) {
             [self.delegate photoBrowserView:self didEndDisplayIndex:nextIndex];
@@ -242,7 +245,7 @@
     if (!decelerate) {
         CGFloat offsetX = scrollView.contentOffset.x;
         NSInteger nextIndex = offsetX / self.bounds.size.width + 0.5;
-        if (nextIndex != _currentIndex) {
+        if (nextIndex != _currentIndex && nextIndex >= 0 && nextIndex < self.totalCount) {
             _currentIndex = nextIndex;
             if ([self.delegate respondsToSelector:@selector(photoBrowserView:didEndDisplayIndex:)]) {
                 [self.delegate photoBrowserView:self didEndDisplayIndex:nextIndex];
