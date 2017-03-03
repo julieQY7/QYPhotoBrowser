@@ -40,6 +40,7 @@
     self.scrollView.minimumZoomScale = D_ImageView_ScaleMin;
     self.scrollView.bounces = NO;
     self.scrollView.multipleTouchEnabled = YES;
+    self.scrollView.frame = [UIScreen mainScreen].bounds;
     
     self.imageView = [[UIImageView alloc] init];
     [self resetImageView];
